@@ -210,7 +210,8 @@ class SklearnTreatmentRecommender:
         clinical_df_temp = pd.DataFrame([{
             'Age': clinical_data.get('Age', 50),
             'Sex': clinical_data.get('Sex', 'M'),
-            'Clinical Note': clinical_data.get('Clinical Note', '')
+            'Clinical Note': clinical_data.get('Clinical Note', ''),
+            'Treatment': 'surgery'  # Valor dummy para evitar error en prepare_features_for_treatment
         }])
         
         # Procesar los datos clínicos para obtener todas las características
