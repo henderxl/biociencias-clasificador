@@ -1,0 +1,321 @@
+# 🧠 Sistema de Medicina Personalizada - .gitignore
+
+# ==============================================================================
+# Python
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==============================================================================
+# Virtual Environments
+# ==============================================================================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# ==============================================================================
+# IDE and Editors
+# ==============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Spyder
+.spyderproject
+.spyproject
+
+# VSCode
+.vscode/
+.history/
+
+# ==============================================================================
+# Machine Learning & Data Science
+# ==============================================================================
+
+# Trained Models (Large Files)
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.ckpt
+*.pth
+*.pt
+*.model
+*.weights
+
+# Model directories (keep structure but not files)
+models/*.joblib
+models/*.pkl
+models/*.h5
+!models/.gitkeep
+
+# Data Files (Medical Images - Potentially Large)
+data/raw/
+data/processed/
+data/external/
+data/interim/
+*.nii
+*.nii.gz
+*.dcm
+*.dicom
+
+# Keep essential CSV files but not temporary ones
+data/temp_*
+data/*_temp*
+data/backup_*
+
+# Generated Visualizations
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+!docs/images/
+!assets/
+
+# TensorBoard logs
+logs/
+runs/
+tensorboard/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# ==============================================================================
+# Medical Data & Privacy
+# ==============================================================================
+
+# Patient Data (HIPAA Compliance)
+patient_data/
+phi_data/
+protected_health_info/
+*.phi
+
+# Anonymized datasets
+anonymized_*.csv
+patient_*.json
+medical_records_*
+
+# Configuration files with API keys
+config_prod.py
+config_local.py
+secrets.json
+.env.local
+.env.production
+
+# ==============================================================================
+# System Files
+# ==============================================================================
+
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.project
+.loadpath
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==============================================================================
+# Application Specific
+# ==============================================================================
+
+# API Server logs
+logs/
+*.log
+api_logs/
+server_logs/
+
+# Cache directories
+.cache/
+.pytest_cache/
+__pycache__/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# Testing
+.tox/
+.nox/
+.pytest_cache/
+test_output/
+test_results/
+
+# ==============================================================================
+# Documentation
+# ==============================================================================
+
+# Sphinx documentation
+docs/_build/
+docs/build/
+
+# MkDocs
+site/
+
+# ==============================================================================
+# Security & Credentials
+# ==============================================================================
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# SSH keys
+*.pem
+*.key
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+
+# SSL certificates
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Azure/Cloud credentials
+.azure/
+azure.json
+service-account.json
+gcp-key.json
+aws-credentials
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# ==============================================================================
+# Temporary & Backup Files
+# ==============================================================================
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*~
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ==============================================================================
+# Project Specific
+# ==============================================================================
+
+# Generated reports
+reports/
+output/
+results/
+
+# Downloaded datasets (large files)
+downloads/
+kaggle/
+
+# Experiment tracking
+experiments/
+wandb/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Keep important directories with placeholder
+!data/.gitkeep
+!models/.gitkeep
+!logs/.gitkeep
+!tests/.gitkeep
+
+# ==============================================================================
+# Medical Imaging Specific
+# ==============================================================================
+
+# DICOM files (typically large)
+*.dcm
+*.DCM
+*.dicom
+*.DICOM
+
+# NIfTI files
+*.nii
+*.nii.gz
+
+# Medical image formats
+*.img
+*.hdr
+*.mha
+*.mhd
+*.nrrd
+
+# ==============================================================================
+# End of .gitignore
+# ============================================================================== 

@@ -1,0 +1,102 @@
+# 🧠 Sistema de Medicina Personalizada - Dependencias Optimizadas
+# Compatible con Python 3.9+ (recomendado 3.13+)
+
+# ==============================================================================
+# MACHINE LEARNING - CORE (Requerido)
+# ==============================================================================
+scikit-learn>=1.3.0         # Modelos de clasificación y recomendación
+joblib>=1.3.2               # Serialización de modelos ML
+
+# ==============================================================================
+# ANÁLISIS DE DATOS (Requerido)
+# ==============================================================================
+pandas>=2.0.3               # Manipulación de datasets CSV
+numpy>=1.24.3               # Operaciones numéricas y arrays
+
+# ==============================================================================
+# PROCESAMIENTO DE IMÁGENES (Requerido)
+# ==============================================================================
+opencv-python>=4.8.0        # Procesamiento de imágenes MRI
+Pillow>=10.0.0              # Carga y manipulación de imágenes
+imageio>=2.31.1             # Lectura de formatos adicionales
+scikit-image>=0.22.0        # Análisis avanzado de imágenes
+
+# ==============================================================================
+# API WEB (Requerido)
+# ==============================================================================
+fastapi>=0.104.0            # Framework de API REST moderno
+uvicorn>=0.24.0             # Servidor ASGI de alto rendimiento
+python-multipart>=0.0.6     # Soporte para archivos multipart
+pydantic>=2.1.1             # Validación de datos automática
+requests>=2.31.0            # Cliente HTTP para tests
+
+# ==============================================================================
+# VISUALIZACIÓN Y REPORTES (Requerido)
+# ==============================================================================
+matplotlib>=3.7.2           # Gráficos básicos y científicos
+seaborn>=0.12.2             # Visualizaciones estadísticas
+plotly>=5.15.0              # Dashboards interactivos
+
+# ==============================================================================
+# PROCESAMIENTO DE TEXTO - NLP (Requerido)
+# ==============================================================================
+nltk>=3.8.1                 # Análisis de notas clínicas
+
+# ==============================================================================
+# JUPYTER Y DESARROLLO (Opcional - Solo para Análisis)
+# ==============================================================================
+jupyter>=1.0.0              # Notebooks interactivos
+ipykernel>=6.25.0           # Kernel de Python para Jupyter
+
+# ==============================================================================
+# TESTING Y VALIDACIÓN (Requerido para Desarrollo)
+# ==============================================================================
+pytest>=7.4.0               # Framework de testing
+pytest-cov>=4.1.0           # Cobertura de código
+
+# ==============================================================================
+# UTILIDADES Y CONFIGURACIÓN (Requerido)
+# ==============================================================================
+python-dotenv>=1.0.0        # Variables de entorno
+tqdm>=4.65.0                # Barras de progreso
+loguru>=0.7.0               # Logging avanzado
+
+# ==============================================================================
+# EXPLICABILIDAD DE MODELOS (Opcional - Para Producción)
+# ==============================================================================
+shap>=0.43.0                # Explicación de predicciones ML
+
+# ==============================================================================
+# AZURE CLOUD (Opcional - Solo para Producción)
+# ==============================================================================
+# Descomenta si planeas desplegar en Azure
+# azure-storage-blob>=12.19.0    # Almacenamiento de imágenes
+# azure-keyvault-secrets>=4.7.0  # Gestión de secretos
+# azure-identity>=1.15.0         # Autenticación Azure
+
+# ==============================================================================
+# DEPENDENCIAS REMOVIDAS
+# ==============================================================================
+# Las siguientes dependencias fueron removidas porque no las usamos:
+# - tensorflow (no compatible con Python 3.13)
+# - torch/torchvision (no usamos PyTorch)
+# - transformers (no usamos modelos de lenguaje grandes)
+# - sentence-transformers (no necesario para nuestro caso)
+# - flask (usamos FastAPI)
+# - mlflow (no implementado aún)
+# - lime (usamos SHAP en su lugar)
+# - spacy (NLTK es suficiente)
+# - wandb (no implementado)
+# - optuna (no usamos optimización automática)
+
+# ==============================================================================
+# INSTALACIÓN MÍNIMA PARA PRODUCCIÓN
+# ==============================================================================
+# Para instalación mínima solo para usar la API (sin desarrollo):
+# pip install scikit-learn pandas numpy opencv-python pillow fastapi uvicorn
+
+# ==============================================================================
+# INSTALACIÓN COMPLETA PARA DESARROLLO
+# ==============================================================================
+# Para instalación completa con todas las funcionalidades:
+# pip install -r requirements.txt 
