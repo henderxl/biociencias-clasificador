@@ -69,7 +69,6 @@ venv.bak/
 
 # Trained Models (Large Files)
 *.pkl
-*.joblib
 *.h5
 *.hdf5
 *.ckpt
@@ -79,14 +78,11 @@ venv.bak/
 *.weights
 
 # Model directories (keep structure but not files)
-models/*.joblib
 models/*.pkl
 models/*.h5
 !models/.gitkeep
 
 # Data Files (Medical Images - Potentially Large)
-data/raw/
-data/processed/
 data/external/
 data/interim/
 *.nii
@@ -99,10 +95,7 @@ data/temp_*
 data/*_temp*
 data/backup_*
 
-# Generated Visualizations
-*.png
-*.jpg
-*.jpeg
+# Generated Visualizations - Ya subidas
 *.svg
 *.pdf
 !docs/images/
