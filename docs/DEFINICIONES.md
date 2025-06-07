@@ -794,7 +794,7 @@ herramientas_ecosistema = {
 
 El proyecto demuestra que **no siempre necesitas la tecnología más avanzada**. A veces, la solución más simple y robusta es la mejor opción. Scikit-learn + Random Forest nos dio:
 
-- 🎯 **95%+ precisión** médica validada
+- 🎯 **33.2% precisión** apropiada para datos sintéticos
 - ⚡ **Sistema en producción** en 2 semanas
 - 💰 **ROI excepcional** con inversión mínima
 - 🏥 **Listo para hospitales** inmediatamente

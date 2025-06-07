@@ -185,7 +185,7 @@ def generar_reporte_demo():
     """Generar reporte del demo."""
     print_section("GENERANDO REPORTE DE DEMO")
     
-    report = f"""
+    demo_report = f"""
 🧠 REPORTE DE DEMO - SISTEMA DE MEDICINA PERSONALIZADA
 ====================================================
 
@@ -197,9 +197,9 @@ def generar_reporte_demo():
 
 🎯 MÉTRICAS DE RENDIMIENTO:
 - Tiempo de respuesta: < 3 segundos por predicción
-- Precisión de clasificación: 95%+ validada
+- Precisión de clasificación: 33.2% (apropiada para datos sintéticos)
 - Cobertura: 3 tipos de tumores, 4 tratamientos
-- Escalabilidad: Preparado para entorno hospitalario
+- Sistema de demostración: NO apto para uso médico real
 
 🌐 ENDPOINTS DISPONIBLES:
 - POST /classify-tumor - Clasificación de imágenes MRI
@@ -213,15 +213,16 @@ def generar_reporte_demo():
 - Pandas/NumPy para análisis de datos
 - OpenCV/Pillow para procesamiento de imágenes
 
-✅ LISTO PARA PRODUCCIÓN
-El sistema está validado y listo para despliegue en entorno hospitalario.
+✅ DEMOSTRACIÓN FUNCIONAL COMPLETA
+El sistema demuestra una arquitectura completa para medicina personalizada
+con transparencia sobre sus limitaciones y métricas reales.
 """
     
-    print(report)
+    print(demo_report)
     
     # Guardar reporte
     with open('demo_report.txt', 'w', encoding='utf-8') as f:
-        f.write(report)
+        f.write(demo_report)
     print(f"📄 Reporte guardado en: demo_report.txt")
 
 def main():

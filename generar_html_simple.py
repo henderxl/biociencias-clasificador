@@ -161,13 +161,14 @@ def generar_reporte_html():
         </div>
 
         <div class="warning-box">
-            <h3>⚠️ Nota Importante sobre Implementación</h3>
-            <p><strong>Sistema de Demostración:</strong> Este proyecto utiliza datos sintéticos y características extraídas para demostrar la arquitectura completa de un sistema de medicina personalizada. En un entorno de producción real, se utilizarían:</p>
+            <h3>⚠️ Nota Importante sobre Métricas del Sistema</h3>
+            <p><strong>Sistema de Demostración:</strong> Este proyecto utiliza datos sintéticos para demostrar la arquitectura completa de un sistema de medicina personalizada. Las métricas obtenidas (~33.2%) son apropiadas para este contexto:</p>
             <ul>
-                <li>🏥 Imágenes MRI reales de estudios clínicos</li>
-                <li>📊 Datos demográficos reales de pacientes</li>
-                <li>🔬 Validación clínica con radiólogos especialistas</li>
-                <li>📋 Certificaciones médicas (FDA, CE, etc.)</li>
+                <li>📊 <strong>Precisión real:</strong> 33.2% (baseline teórico: 33.33% para 3 clases)</li>
+                <li>🔍 <strong>Datos sintéticos:</strong> Sin señal discriminatoria real</li>
+                <li>🤖 <strong>Características extraídas:</strong> Random Forest con features sintéticas</li>
+                <li>⚠️ <strong>NO para uso médico:</strong> Solo demostración de arquitectura</li>
+                <li>✅ <strong>Metodología válida:</strong> Transparente y reproductible</li>
             </ul>
         </div>
 

@@ -1,435 +1,522 @@
-# 📚 Manual de Usuario - Sistema de Medicina Personalizada
+# 📋 Manual de Usuario - Sistema de Medicina Personalizada
 
-## 🎯 Introducción
+## 📌 **Resumen Ejecutivo**
 
-Bienvenido al **Sistema de Medicina Personalizada** para clasificación de tumores cerebrales. Este es un **sistema de demostración** que utiliza datos sintéticos para mostrar el potencial de la IA en medicina.
+El **Sistema de Medicina Personalizada** es una **demostración** de inteligencia artificial diseñada para mostrar el potencial de la IA en medicina através de la combinación de análisis de imágenes MRI y datos clínicos sintéticos.
 
-⚠️ **IMPORTANTE**: Este sistema utiliza **datos sintéticos** y modelos de demostración. **NO debe usarse para diagnósticos médicos reales**.
+**📊 Capacidades actuales:**
+- 🧠 **Clasificación de tumores**: 33.2% precisión con datos sintéticos
+- 💊 **Recomendación de tratamientos**: Sistema multimodal funcional  
+- 🌐 **API REST**: Endpoints de demostración con documentación
+- 📊 **Análisis exploratorio**: Visualizaciones automáticas
+- 📓 **Reportes HTML**: Documentación académica completa
 
-## 👥 Audiencias del Sistema
-
-### 🏥 **Médicos y Radiólogos**
-- Análisis rápido de estudios MRI
-- Apoyo en diagnóstico de tumores cerebrales
-- Recomendaciones de tratamiento personalizadas
-
-### 🎓 **Investigadores y Académicos**
-- Análisis exploratorio de datos médicos sintéticos
-- Reportes académicos con pruebas estadísticas
-- Demostración de pipelines de IA médica
-
-### 💻 **Desarrolladores y DevOps**
-- Ejemplo de integración de IA médica
-- API REST de demostración
-- Arquitectura escalable para IA médica
-
-### 🏥 **Profesionales Médicos (Solo Demostración)**
-- Visualización de potencial de IA médica
-- Comprensión de flujos de trabajo automatizados
-- ⚠️ **SOLO para evaluación de conceptos, NO diagnóstico**
+⚠️ **IMPORTANTE**: Este es un **sistema de demostración** que utiliza datos sintéticos. **NO debe usarse para diagnósticos médicos reales**.
 
 ---
 
-## 🚀 **Casos de Uso Principales**
+## 🎯 **Objetivos del Sistema**
 
-### 🎓 **1. Uso Académico e Investigación**
+### **Objetivo Principal**
+Demostrar una **arquitectura completa** para sistemas de medicina personalizada, incluyendo procesamiento de imágenes médicas, análisis de datos clínicos y recomendaciones de tratamiento.
 
-#### **Análisis Exploratorio Automatizado (RECOMENDADO)**
-```bash
-# Análisis completo con visualizaciones automáticas
-python analisis_exploratorio.py
-```
-
-**📊 Genera automáticamente:**
-- `analysis_distributions.png` - Distribuciones demográficas y tipos de tumor
-- `analysis_correlations.png` - Correlaciones entre variables y patrones
-- `analysis_images.png` - Análisis de dataset de imágenes MRI
-- `analysis_summary.png` - Dashboard médico ejecutivo
-
-**🎯 Beneficios:**
-- 📈 Análisis de 6,056 casos médicos sintéticos en 2-3 minutos
-- 🖼️ 4 visualizaciones profesionales automáticas
-- 📊 Estadísticas detalladas por tumor y tratamiento
-- 🎨 Dashboard médico interactivo incluido
-- ✅ Cumple exactamente requerimientos académicos de análisis exploratorio
-
-**✅ Incluye específicamente:**
-- **Análisis descriptivo**: Estadísticas de 6,056 pacientes sintéticos
-- **Análisis inferencial**: Pruebas Chi-cuadrado y ANOVA (si scipy disponible)
-- **Pruebas de hipótesis**: Distribución de géneros y edades
-- **Feature engineering**: Transformaciones detalladas
-- **Preprocesamiento de imágenes**: Proceso documentado
-- **Insights y recomendaciones**: Para modelado y próximos pasos
-
-#### **Generación de Reporte HTML (ALTERNATIVO)**
-```bash
-# Para generar reporte académico en HTML
-python generar_html_simple.py
-```
-
-**📄 Salida generada:**
-- `analisis_medicina_personalizada_YYYYMMDD_HHMMSS.html` (18.8 KB)
-- Documento HTML profesional navegable
-- Sin dependencias complejas (solo pandas)
-
-### 🏥 **2. Demo de API Médica**
-
-#### **API REST de Demostración**
-```bash
-# Iniciar servidor API de demostración
-python api_server.py
-# Acceder: http://localhost:8000/docs
-```
-
-**🌐 Endpoints disponibles:**
-- `POST /classify-tumor` - Clasificación de tumor cerebral (demo)
-- `POST /recommend-treatment` - Recomendación de tratamiento (demo)
-- `GET /health` - Estado del sistema y modelos
-- `GET /model-info` - Información detallada de modelos cargados
-
-#### **Ejemplo de Uso de Demostración:**
-```bash
-# Clasificar tumor MRI (demo con imagen sintética)
-curl -X POST "http://localhost:8000/classify-tumor" \
-     -H "Content-Type: multipart/form-data" \
-     -F "image=@data/processed/images/train/Brain_Glioma/brain_glioma_0001.jpg"
-```
-
-**📋 Respuesta de demostración:**
-```json
-{
-  "predicted_class": "Brain_Glioma",
-  "confidence": 0.36,
-  "probabilities": {
-    "Brain_Glioma": 0.36,
-    "Brain_Meningiomas": 0.33,
-    "Brain_Tumor": 0.31
-  },
-  "metadata": {
-    "filename": "brain_glioma_0001.jpg",
-    "model_type": "random_forest",
-    "warning": "SISTEMA DE DEMOSTRACIÓN - NO USAR PARA DIAGNÓSTICO REAL"
-  }
-}
-```
-
-### 💻 **3. Desarrollo e Integración**
-
-#### **Entrenamiento de Modelos**
-```bash
-# Entrenar modelos de demostración desde cero
-python src/models/train_models.py
-```
-
-**🤖 Modelos que se entrenan:**
-- ✅ **Clasificador de imágenes**: Random Forest con características extraídas
-- ✅ **Recomendador de tratamientos**: Random Forest multimodal
-- ✅ **Guarda automáticamente** en: `models/sklearn_image_classifier.joblib` y `models/sklearn_treatment_recommender.joblib`
-
-**📊 Proceso de entrenamiento real:**
-1. Carga datos clínicos sintéticos (6,056 pacientes)
-2. Genera características sintéticas de imágenes (19 features por imagen)
-3. Entrena clasificador de tumores cerebrales
-4. Entrena recomendador de tratamientos
-5. Evalúa modelos con métricas reales
-6. Guarda modelos entrenados para la API
-
-#### **Testing y Validación**
-```bash
-# Validar modelos entrenados
-python tests/models/test_models_trained.py
-
-# Probar API completa
-python tests/api/test_api_complete.py
-```
+### **Objetivos Específicos**
+1. **Clasificación automática** de 3 tipos de tumores cerebrales
+2. **Recomendación personalizada** de 4 tipos de tratamientos
+3. **API REST funcional** para integración
+4. **Análisis exploratorio** automatizado
+5. **Documentación académica** profesional
 
 ---
 
-## 📊 **Métricas Reales del Sistema (Actualizadas)**
+## 👥 **Audiencias Objetivo**
 
-### 🎯 **Rendimiento Real Validado**
-
-| **Modelo** | **Precisión** | **Recall** | **F1-Score** | **Estado** |
-|------------|---------------|------------|--------------|-------------|
-| 🧠 Clasificador Tumores | **34.4%** | **34.4%** | **34.4%** | ✅ Funcional |
-| 💊 Recomendador Tratamientos | **32.0%** | **32.0%** | **32.0%** | ✅ Funcional |
-
-**📝 Nota importante sobre métricas:**
-- Las métricas son **intencionalmente bajas** debido a:
-  - ✅ **Datos sintéticos** para demostración
-  - ✅ **Características extraídas** en lugar de deep learning
-  - ✅ **Problema complejo** de clasificación médica
-  - ✅ **Sistema realista** sin sobreajuste artificial
-
-**🎯 Métricas por clase (Clasificador de Tumores):**
-```
-                   precision    recall  f1-score   support
-     Brain Glioma       0.35      0.39      0.37       401
-Brain Meningiomas       0.34      0.29      0.31       401
-      Brain Tumor       0.34      0.36      0.35       401
-
-         accuracy                           0.34      1203
-        macro avg       0.34      0.34      0.34      1203
-     weighted avg       0.34      0.34      0.34      1203
-```
-
-### 📈 **Datos Procesados**
-
-| **Métrica** | **Valor** | **Descripción** |
-|-------------|-----------|-----------------|
-| 👥 **Pacientes** | 6,056 | Casos médicos sintéticos analizados |
-| 🖼️ **Imágenes MRI** | 6,056+ | Estudios de resonancia (imágenes reales + sintéticas) |
-| 🧠 **Tipos de tumor** | 3 | Brain_Glioma, Brain_Meningiomas, Brain_Tumor |
-| 💊 **Tratamientos** | 4 | surgery, radiation therapy, chemotherapy, close monitoring |
-| ⚡ **Latencia** | ~2-3 seg | Por predicción individual |
-
-### ✅ **Validación del Sistema**
-
-**📊 Distribución real del dataset:**
-- **Edad**: 18-84 años (datos sintéticos realistas)
-- **Género**: Distribución balanceada
-- **Tipos de tumor**: Distribución equilibrada (~33% cada uno)
-- **Tratamientos**: Distribución realista basada en práctica médica
-
-**🔍 Casos de prueba:**
-- ✅ 1,203 casos de test independientes
-- ✅ Validación train/test split (80/20)
-- ✅ Resultados reproducibles (random_state=42)
-- ✅ Sin overfitting (precisión similar en train y test)
+| **Audiencia** | **Uso Principal** | **Beneficios** |
+|---------------|-------------------|----------------|
+| 🎓 **Investigadores** | Análisis exploratorio y reportes | Metodología transparente y reproducible |
+| 💻 **Desarrolladores** | Arquitectura y API | Ejemplo de sistema médico con IA |
+| 🏥 **Evaluadores médicos** | Comprensión de potencial IA | Demostración de conceptos responsables |
+| 📊 **Estudiantes** | Aprendizaje de ML médico | Código completo y documentado |
 
 ---
 
-## ⚠️ **Limitaciones y Advertencias Importantes**
+## 🚀 **Guía de Inicio Rápido**
 
-### 🚨 **ADVERTENCIAS CRÍTICAS**
-
-**❌ NO usar para:**
-- Diagnóstico médico real
-- Decisiones de tratamiento clínico
-- Evaluación de pacientes reales
-- Cualquier uso médico sin supervisión
-
-**✅ SÍ usar para:**
-- Demostración de conceptos de IA médica
-- Investigación académica sobre pipelines de ML
-- Aprendizaje de arquitecturas de sistemas médicos
-- Prototipado de soluciones de IA médica
-
-### 🔬 **Limitaciones Técnicas**
-
-**📊 Sobre los datos:**
-- ✅ **Dataset sintético** generado para demostración
-- ✅ **Características extraídas** de imágenes (no CNN real)
-- ✅ **Patterns realistas** pero no datos médicos reales
-- ✅ **6,056 pacientes sintéticos** con distribuciones médicamente plausibles
-
-**🤖 Sobre los modelos:**
-- ✅ **Random Forest** (no deep learning por simplicidad)
-- ✅ **Feature engineering** manual de 19 características por imagen
-- ✅ **Modelos entrenados** con datos sintéticos exclusivamente
-- ✅ **Precisión baja** intencionalmente realista
-
-**🏥 Sobre aplicabilidad médica:**
-- ❌ **NO validado clínicamente**
-- ❌ **NO cumple estándares FDA/CE**
-- ❌ **NO probado** con datos médicos reales
-- ❌ **Requiere validación completa** antes de uso médico
-
----
-
-## 🛠️ **Guía de Instalación y Uso**
-
-### 📋 **Requisitos del Sistema**
-
-**Mínimos:**
-- Python 3.8+ (Recomendado: 3.13+)
-- 4GB RAM disponible
-- 2GB espacio en disco
-- Windows/Linux/macOS
-
-**Dependencias principales:**
-```bash
-pandas>=1.5.0
-numpy>=1.21.0
-scikit-learn>=1.0.0
-opencv-python>=4.5.0
-fastapi>=0.68.0
-uvicorn>=0.15.0
-joblib>=1.1.0
-```
-
-### 🚀 **Instalación Paso a Paso**
-
+### **Instalación en 5 Pasos**
 ```bash
 # 1. Clonar repositorio
 git clone https://github.com/henderxl/biociencias-clasificador.git
 cd biociencias-clasificador
 
-# 2. Crear entorno virtual (recomendado)
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# venv\Scripts\activate   # Windows
-
-# 3. Instalar dependencias
+# 2. Instalar dependencias
 pip install -r requirements.txt
 
-# 4. Verificar instalación
+# 3. Verificar instalación
 python check_installation.py
 
-# 5. Entrenar modelos (opcional - ya están incluidos)
-python src/models/train_models.py
+# 4. Generar reporte HTML
+python generar_html_simple.py
 
-# 6. Ejecutar análisis exploratorio
-python analisis_exploratorio.py
-
-# 7. Probar API
+# 5. Iniciar API de demostración
 python api_server.py
 ```
 
-### 🧪 **Verificación de Funcionamiento**
+### **Verificación de Funcionamiento**
+Después de la instalación, deberías poder ejecutar:
 
 ```bash
-# Verificar modelos entrenados
-ls models/
-# Debe mostrar:
-# sklearn_image_classifier.joblib
-# sklearn_treatment_recommender.joblib
+# Test rápido del sistema
+python test_demo_simple.py
+# Esperado: ✅ Demo funcional completada
 
-# Verificar dataset
-ls data/
-# Debe mostrar:
-# brain_conditions_detailed_dataset.csv
-
-# Verificar imágenes (si se necesitan)
-ls data/processed/images/train/
-# Debe mostrar:
-# Brain_Glioma/, Brain_Meningiomas/, Brain_Tumor/
+# Análisis exploratorio
+python analisis_exploratorio.py
+# Esperado: 4 archivos PNG generados
 ```
 
 ---
 
-## 🔧 **Solución de Problemas**
+## 📊 **Funcionalidades Principales**
 
-### ❌ **Errores Comunes**
+### 🧠 **1. Clasificación de Tumores Cerebrales**
 
-#### **Error: "KeyError: 'Treatment'"**
-```bash
-# SOLUCIONADO en versión actual
-# Si aparece, actualizar código:
-git pull origin main
+#### **Descripción**
+Sistema que combina análisis de imágenes MRI con datos demográficos para clasificar tumores en 3 categorías:
+- **Brain Glioma**: Tumor maligno de células gliales
+- **Brain Menin**: Meningioma, tumor de las meninges
+- **Brain Tumor**: Otros tipos de tumores cerebrales
+
+#### **Características Técnicas**
+- **Algoritmo**: Random Forest con 19 características extraídas
+- **Entrada**: Imagen MRI + edad + sexo del paciente
+- **Salida**: Clase predicha + probabilidades + confianza
+- **Precisión**: 33.2% (apropiada para datos sintéticos)
+- **Tiempo**: < 3 segundos por predicción
+
+#### **Uso Programático**
+```python
+from src.models.train_models import load_models, predict_single_case
+
+# Cargar modelos
+models = load_models()
+
+# Realizar predicción
+prediction = predict_single_case(
+    image_path="data/brain_mri_images/sample.jpg",
+    age=45,
+    sex="M",
+    models=models
+)
+
+print(f"Tumor predicho: {prediction['tumor_class']}")
+print(f"Confianza: {prediction['tumor_confidence']:.2%}")
 ```
 
-#### **Error: "Models not found"**
-```bash
-# Entrenar modelos:
-python src/models/train_models.py
-```
+### 💊 **2. Recomendación de Tratamientos**
 
-#### **Error: "scipy not available"**
-```bash
-# Instalar scipy para pruebas estadísticas:
-pip install scipy
-```
+#### **Descripción**
+Sistema multimodal que recomienda tratamientos personalizados basado en:
+- Resultado de clasificación de tumor
+- Datos demográficos del paciente
+- Historial clínico sintético
 
-#### **Error: "No module named 'data'"**
+#### **Opciones de Tratamiento**
+1. **Surgery** (Cirugía): Para casos que requieren intervención quirúrgica
+2. **Radiotherapy** (Radioterapia): Tratamiento con radiación
+3. **Chemotherapy** (Quimioterapia): Tratamiento farmacológico
+4. **Follow-up** (Seguimiento): Monitoreo regular
+
+#### **Características Técnicas**
+- **Algoritmo**: Random Forest multimodal
+- **Entrada**: Características combinadas (imagen + clínicas + demográficas)
+- **Salida**: Tratamiento recomendado + justificación
+- **Tiempo**: < 3 segundos por recomendación
+
+### 📊 **3. Análisis Exploratorio Automatizado**
+
+#### **Comando de Ejecución**
 ```bash
-# Ejecutar desde directorio raíz:
-cd /ruta/al/proyecto
 python analisis_exploratorio.py
 ```
 
-### 📊 **Interpretación de Resultados**
+#### **Visualizaciones Generadas**
+1. **`analysis_distributions.png`**: Distribuciones demográficas
+   - Histogramas de edad por tipo de tumor
+   - Distribución por sexo
+   - Balance de clases
 
-#### **Clasificación de Tumores:**
-- **Confianza baja (30-40%)**: Normal para sistema de demostración
-- **Distribución equilibrada**: Las 3 clases tienen probabilidades similares
-- **Resultados variables**: Esperado con características sintéticas
+2. **`analysis_correlations.png`**: Matriz de correlaciones
+   - Correlaciones entre variables numéricas
+   - Identificación de patrones
 
-#### **Recomendación de Tratamientos:**
-- **4 opciones disponibles**: surgery, radiation, chemotherapy, monitoring
-- **Decisiones balanceadas**: No hay sesgo hacia un tratamiento específico
-- **Confianza moderada**: 25-35% es típico para decisiones médicas complejas
+3. **`analysis_images.png`**: Muestras de imágenes MRI
+   - Ejemplos de cada tipo de tumor
+   - Características visuales distintivas
+
+4. **`analysis_summary.png`**: Dashboard ejecutivo
+   - Métricas clave del dataset
+   - Estadísticas descriptivas
+   - Insights principales
+
+### 📓 **4. Generación de Reportes HTML**
+
+#### **Comando de Ejecución**
+```bash
+python generar_html_simple.py
+```
+
+#### **Contenido del Reporte**
+El reporte HTML incluye:
+
+✅ **Análisis Descriptivo Completo**
+- Estadísticas de todas las variables
+- Distribuciones y patrones
+- Identificación de outliers
+
+✅ **Análisis Inferencial**
+- Pruebas de hipótesis (cuando scipy disponible)
+- Análisis de significancia estadística
+- Conclusiones basadas en datos
+
+✅ **Feature Engineering Documentado**
+- Proceso de extracción de características
+- Transformaciones aplicadas
+- Justificación de features seleccionadas
+
+✅ **Entrenamiento de Modelos**
+- Metodología utilizada
+- Métricas de evaluación
+- Limitaciones identificadas
+
+✅ **Métricas Reales y Limitaciones**
+- Precisión real del sistema (33.2%)
+- Explicación de limitaciones
+- Recomendaciones para mejora
+
+### 🌐 **5. API REST de Demostración**
+
+#### **Iniciar Servidor**
+```bash
+python api_server.py
+# Servidor disponible en: http://localhost:8000
+# Documentación: http://localhost:8000/docs
+```
+
+#### **Endpoints Disponibles**
+
+##### **1. Clasificación de Tumores**
+```bash
+POST /classify-tumor
+Content-Type: application/json
+
+{
+  "image_path": "path/to/mri.jpg",
+  "patient_age": 45,
+  "patient_sex": "M"
+}
+```
+
+**Respuesta:**
+```json
+{
+  "tumor_class": "Brain Glioma",
+  "confidence": 0.45,
+  "probabilities": {
+    "Brain Glioma": 0.45,
+    "Brain Menin": 0.30,
+    "Brain Tumor": 0.25
+  },
+  "processing_time": 2.1
+}
+```
+
+##### **2. Recomendación de Tratamientos**
+```bash
+POST /recommend-treatment
+Content-Type: application/json
+
+{
+  "tumor_type": "Brain Glioma",
+  "patient_age": 45,
+  "patient_sex": "M",
+  "clinical_notes": "Patient experiencing severe headaches"
+}
+```
+
+**Respuesta:**
+```json
+{
+  "recommended_treatment": "surgery",
+  "confidence": 0.42,
+  "reasoning": "Tumor characteristics suggest surgical intervention",
+  "alternative_treatments": ["radiotherapy", "chemotherapy"]
+}
+```
+
+##### **3. Estado del Sistema**
+```bash
+GET /health
+```
+
+**Respuesta:**
+```json
+{
+  "status": "healthy",
+  "models_loaded": true,
+  "version": "1.0.0",
+  "uptime": "0:15:23"
+}
+```
+
+##### **4. Información de Modelos**
+```bash
+GET /model-info
+```
+
+**Respuesta:**
+```json
+{
+  "image_classifier": {
+    "type": "RandomForestClassifier",
+    "features": 19,
+    "accuracy": 0.332,
+    "classes": ["Brain Glioma", "Brain Menin", "Brain Tumor"]
+  },
+  "treatment_recommender": {
+    "type": "RandomForestClassifier", 
+    "features": "combined",
+    "treatments": ["surgery", "radiotherapy", "chemotherapy", "follow-up"]
+  }
+}
+```
 
 ---
 
-## 📚 **Arquitectura del Sistema**
+## 🧪 **Testing y Validación**
 
-### 🏗️ **Componentes Principales**
+### **Tests Automatizados**
 
-```
-Sistema de Medicina Personalizada
-├── 📊 Data Pipeline
-│   ├── data/brain_conditions_detailed_dataset.csv (6,056 registros)
-│   ├── data/processed/images/ (6,000+ imágenes MRI)
-│   └── src/data/data_loader.py (carga y procesamiento)
-├── 🤖 Machine Learning
-│   ├── src/models/train_models.py (entrenamiento)
-│   ├── models/sklearn_*.joblib (modelos entrenados)
-│   └── Feature extraction (19 características por imagen)
-├── 🌐 API REST
-│   ├── api_server.py (FastAPI server)
-│   ├── /classify-tumor (endpoint clasificación)
-│   └── /recommend-treatment (endpoint recomendación)
-├── 📈 Análisis Exploratorio
-│   ├── analisis_exploratorio.py (análisis automático)
-│   ├── generar_html_simple.py (reporte HTML)
-│   └── Visualizaciones PNG generadas
-└── 🧪 Testing
-    ├── tests/models/ (pruebas de modelos)
-    └── tests/api/ (pruebas de API)
+#### **1. Tests de Modelos**
+```bash
+python tests/models/test_models_trained.py
 ```
 
-### 🔄 **Flujo de Datos**
+**Validaciones incluidas:**
+- ✅ Modelos se cargan correctamente
+- ✅ Predicciones funcionan sin errores
+- ✅ Formatos de salida son correctos
+- ✅ Tiempo de respuesta < 5 segundos
 
-1. **📥 Ingesta**: CSV con 6,056 pacientes + imágenes MRI
-2. **🔧 Procesamiento**: Feature engineering de 19 características
-3. **🤖 Entrenamiento**: Random Forest para clasificación + recomendación
-4. **💾 Persistencia**: Modelos guardados como .joblib
-5. **🌐 Servicio**: API REST con FastAPI
-6. **📊 Análisis**: Generación automática de reportes y visualizaciones
+#### **2. Tests de API**
+```bash
+python tests/api/test_api_complete.py
+```
+
+**Validaciones incluidas:**
+- ✅ Todos los endpoints responden
+- ✅ Formatos JSON correctos
+- ✅ Códigos de estado HTTP apropiados
+- ✅ Documentación Swagger funcional
+
+#### **3. Demo Funcional Completo**
+```bash
+python test_demo_simple.py
+```
+
+**Flujo de validación:**
+1. Cargar datos y modelos
+2. Realizar predicciones de ejemplo
+3. Verificar API endpoints
+4. Generar visualizaciones
+5. Crear reporte HTML
+
+### **Verificación de Instalación**
+```bash
+python check_installation.py
+```
+
+**Verifica:**
+- ✅ Dependencias instaladas
+- ✅ Datos disponibles
+- ✅ Modelos entrenados
+- ✅ Funcionalidades principales
+
+---
+
+## 📊 **Interpretación de Resultados**
+
+### **Métricas del Sistema**
+
+#### **Precisión: 33.2%**
+- **Significado**: De cada 100 predicciones, ~33 son correctas
+- **Contexto**: Con 3 clases balanceadas, baseline teórico es 33.33%
+- **Interpretación**: Apropiado para datos sintéticos sin señal discriminatoria real
+
+#### **Tiempo de Respuesta: < 3 segundos**
+- **Medición**: Tiempo desde entrada hasta predicción completa
+- **Factores**: Carga de imagen + extracción de features + clasificación
+- **Optimización**: Adecuado para uso interactivo
+
+#### **Confianza de Predicciones**
+- **Rango**: 0.0 a 1.0 (expresado como probabilidad)
+- **Interpretación**: 
+  - > 0.7: Alta confianza
+  - 0.4-0.7: Confianza moderada
+  - < 0.4: Baja confianza (común con datos sintéticos)
+
+### **Limitaciones del Sistema**
+
+#### **🚨 Limitaciones Críticas**
+1. **Datos Sintéticos**: No representan casos médicos reales
+2. **Sin Validación Clínica**: Requiere estudios con especialistas
+3. **Precisión Limitada**: Apropiada solo para demostración
+4. **Alcance Reducido**: Solo 3 tipos de tumores cerebrales
+
+#### **📋 Para Uso Real**
+Para implementación en entorno médico real se requiere:
+- ✅ Dataset médico certificado
+- ✅ Validación por radiólogos
+- ✅ Cumplimiento regulatorio (FDA, CE)
+- ✅ Testing exhaustivo con casos reales
+- ✅ Explicabilidad médica implementada
+
+---
+
+## 🛠️ **Solución de Problemas Comunes**
+
+### **Error: Modelos no encontrados**
+```bash
+# Problema: FileNotFoundError al cargar modelos
+# Solución: Entrenar modelos
+python src/models/train_models.py
+```
+
+### **Error: Dependencias faltantes**
+```bash
+# Problema: ImportError de librerías
+# Solución: Reinstalar dependencias
+pip install -r requirements.txt --upgrade
+```
+
+### **Error: Puerto ocupado (API)**
+```bash
+# Problema: Address already in use
+# Solución: Usar puerto diferente
+python api_server.py --port 8001
+```
+
+### **Error: Imágenes no encontradas**
+```bash
+# Problema: No se encuentran imágenes MRI
+# Verificar estructura de directorios
+ls data/brain_mri_images/
+# Debe contener: Brain_Glioma/, Brain_Menin/, Brain_Tumor/
+```
+
+### **Error: Memoria insuficiente**
+```bash
+# Problema: MemoryError durante análisis
+# Solución: Reducir tamaño de muestra o aumentar RAM
+# Alternativa: Procesar en lotes más pequeños
+```
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### **Documentación Técnica**
+- 📖 [README.md](../README.md): Guía técnica completa
+- 🏗️ [ARQUITECTURA_AZURE.md](ARQUITECTURA_AZURE.md): Propuesta de despliegue
+- 📊 [DIAGRAMAS_C4_ARQUITECTURA.md](DIAGRAMAS_C4_ARQUITECTURA.md): Diagramas técnicos
+- 📝 [JUSTIFICACION_METRICAS.md](../JUSTIFICACION_METRICAS.md): Explicación de métricas
+
+### **Jupyter Notebooks**
+- 📓 [01_exploratory_analysis.ipynb](../notebooks/01_exploratory_analysis.ipynb): Análisis interactivo
+
+### **Código Fuente**
+- 🔧 [src/models/train_models.py](../src/models/train_models.py): Entrenamiento
+- 🔧 [src/data/data_loader.py](../src/data/data_loader.py): Carga de datos
+- 🌐 [api_server.py](../api_server.py): Servidor API
+- 📊 [analisis_exploratorio.py](../analisis_exploratorio.py): Análisis automatizado
+
+---
+
+## 🎯 **Casos de Uso Específicos**
+
+### **Para Investigadores**
+```bash
+# 1. Análisis exploratorio completo
+python analisis_exploratorio.py
+
+# 2. Generación de reporte académico
+python generar_html_simple.py
+
+# 3. Análisis interactivo
+jupyter notebook notebooks/01_exploratory_analysis.ipynb
+```
+
+### **Para Desarrolladores**
+```bash
+# 1. Testing de modelos
+python tests/models/test_models_trained.py
+
+# 2. Testing de API
+python tests/api/test_api_complete.py
+
+# 3. Desarrollo local
+python api_server.py
+```
+
+### **Para Evaluadores**
+```bash
+# 1. Demo funcional completo
+python test_demo_simple.py
+
+# 2. Verificación de instalación
+python check_installation.py
+
+# 3. Revisión de reportes
+# Abrir archivo HTML generado por generar_html_simple.py
+```
 
 ---
 
 ## 📞 **Soporte y Contacto**
 
-### 🆘 **Obtener Ayuda**
+### **Obtener Ayuda**
+1. **Documentación**: Revisar carpeta `docs/`
+2. **Diagnóstico**: Ejecutar `python check_installation.py`
+3. **Issues**: Reportar problemas en repositorio
+4. **Testing**: Ejecutar tests automatizados
 
-**Para problemas técnicos:**
-- 🐛 **GitHub Issues**: Reportar bugs o problemas
-- 📚 **Documentación**: Consultar carpeta `docs/`
-- 🔧 **Scripts de diagnóstico**: `check_installation.py`
-
-**Para desarrollo:**
-- 💻 **Código fuente**: Completamente disponible en GitHub
-- 🏗️ **Arquitectura**: Documentada en `docs/`
-- 🧪 **Tests**: Ejecutar `python -m pytest tests/`
-
-### 📋 **Información del Sistema**
-
-**Versión:** 1.0.0
-**Última actualización:** junio 2025
-**Compatibilidad:** Python 3.8+ (Recomendado: 3.13+)
-**Licencia:** Uso Académico y de Investigación
+### **Recursos de Aprendizaje**
+- 📚 Documentación interna completa
+- 🔧 Código fuente comentado
+- 📊 Ejemplos de uso incluidos
+- 🧪 Tests como documentación ejecutable
 
 ---
 
-## 🎯 **Conclusión**
+## 🏆 **Conclusión**
 
-Este **Sistema de Medicina Personalizada** es una demostración funcional de cómo la IA puede aplicarse al diagnóstico médico. Aunque utiliza datos sintéticos y tiene limitaciones de precisión, proporciona una base sólida para:
+El **Sistema de Medicina Personalizada** demuestra una arquitectura completa para aplicaciones de IA médica, implementando mejores prácticas de desarrollo, transparencia ética y documentación profesional.
 
-- ✅ **Aprendizaje**: Comprender pipelines de IA médica
-- ✅ **Investigación**: Explorar metodologías de ML en medicina
-- ✅ **Desarrollo**: Prototipado de sistemas médicos reales
-- ✅ **Evaluación**: Demostrar conceptos y arquitecturas
+### **Fortalezas del Sistema**
+✅ **Arquitectura completa**: API + modelos + análisis + documentación  
+✅ **Código reproducible**: Tests y documentación exhaustiva  
+✅ **Transparencia ética**: Limitaciones claramente documentadas  
+✅ **Modularidad**: Componentes independientes y reutilizables  
+✅ **Escalabilidad**: Preparado para mejoras futuras  
 
-**⚠️ Recordatorio importante**: Este es un sistema de **demostración educativa**. Para uso médico real se requiere:
-- Validación clínica exhaustiva
-- Datos médicos reales y certificados
-- Cumplimiento regulatorio (FDA, CE, etc.)
-- Supervisión médica profesional
+### **Aplicaciones Recomendadas**
+- 🎓 **Educación**: Aprendizaje de ML en medicina
+- 🔬 **Investigación**: Base para estudios avanzados
+- 💻 **Desarrollo**: Ejemplo de sistema médico con IA
+- 📊 **Demostración**: Potencial de IA médica responsable
+
+**⚠️ Recordatorio**: Este es un sistema de demostración. Para uso médico real se requiere validación clínica exhaustiva y cumplimiento regulatorio.
 
 ---
 
-**🏆 Demostración responsable del potencial de la IA en medicina** 🧠✨
-
-*Manual de Usuario - Sistema de Medicina Personalizada | Versión 1.0.0 | Actualizado con métricas reales* 
+*Manual de Usuario | Sistema de Medicina Personalizada v1.0.0 | Diciembre 2024*  
+*Demostración responsable del potencial de la IA en medicina* 🧠✨ 

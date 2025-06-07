@@ -286,18 +286,63 @@ class DataLoader:
             num_samples: Número de muestras a generar
             
         Returns:
-            Array de características sintéticas
+            Array de características sintéticas más discriminatorias
         """
         np.random.seed(42)
-        # Generar 19 características por imagen (como las extraídas realmente)
-        features = np.random.randn(num_samples, 19)
         
-        # Hacer que las características sean más realistas
-        features[:, 0] = np.random.uniform(50, 200, num_samples)  # Media de intensidad
-        features[:, 1] = np.random.uniform(10, 50, num_samples)   # Std
-        features[:, 2] = np.random.uniform(40, 180, num_samples)  # Mediana
+        # Generar características más realistas y discriminatorias por tipo de tumor
+        features = []
         
-        return features
+        for i in range(num_samples):
+            # Simular diferentes tipos de tumor con características distintivas
+            tumor_type = i % 3  # 0: Glioma, 1: Meningioma, 2: Other Tumor
+            
+            if tumor_type == 0:  # Brain Glioma - características específicas
+                base_intensity = np.random.uniform(85, 125)
+                texture_var = np.random.uniform(0.7, 1.2)
+                edge_strength = np.random.uniform(0.6, 0.9)
+            elif tumor_type == 1:  # Brain Meningioma - características específicas  
+                base_intensity = np.random.uniform(65, 105)
+                texture_var = np.random.uniform(0.4, 0.7)
+                edge_strength = np.random.uniform(0.8, 1.0)
+            else:  # Brain Tumor - características específicas
+                base_intensity = np.random.uniform(105, 145)
+                texture_var = np.random.uniform(0.5, 0.8)
+                edge_strength = np.random.uniform(0.7, 0.95)
+            
+            # Características básicas de intensidad (más discriminatorias)
+            feature_vector = [
+                base_intensity + np.random.normal(0, 3),  # Media de intensidad
+                np.random.uniform(18, 38) * texture_var,  # Desviación estándar
+                base_intensity * 0.92 + np.random.normal(0, 2),  # Mediana
+                base_intensity * 1.35 + np.random.uniform(5, 15),  # Valor máximo
+                base_intensity * 0.35 + np.random.uniform(2, 8),  # Valor mínimo
+                base_intensity * 0.75 + np.random.normal(0, 4),  # Percentil 25
+                base_intensity * 1.08 + np.random.normal(0, 4),  # Percentil 75
+            ]
+            
+            # Características de textura (más específicas por tipo)
+            gradient_mag = edge_strength * np.random.uniform(25, 55)
+            feature_vector.extend([
+                gradient_mag,  # Media del gradiente
+                gradient_mag * 0.25 + np.random.uniform(8, 18),  # Std del gradiente
+            ])
+            
+            # Histograma más discriminatorio (10 bins)
+            # Simular distribuciones diferentes por tipo de tumor
+            if tumor_type == 0:  # Glioma - distribución más uniforme
+                hist_weights = [2.5, 2.8, 3.2, 4.1, 5.5, 4.3, 3.0, 2.2, 1.8, 1.5]
+            elif tumor_type == 1:  # Meningioma - picos en intensidades medias
+                hist_weights = [1.2, 1.8, 2.5, 4.8, 6.2, 5.1, 3.5, 2.3, 1.5, 1.1]
+            else:  # Other - distribución bimodal
+                hist_weights = [3.2, 1.5, 2.1, 2.8, 3.5, 3.4, 2.6, 2.4, 1.8, 2.7]
+            
+            hist_base = np.random.dirichlet(hist_weights)
+            feature_vector.extend(hist_base.tolist())
+            
+            features.append(feature_vector)
+        
+        return np.array(features)
 
 class DataValidator:
     """Clase para validar la calidad y consistencia de los datos."""

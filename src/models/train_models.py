@@ -40,8 +40,11 @@ class SklearnImageClassifier:
         """Construir el modelo según el tipo especificado."""
         if self.model_type == 'random_forest':
             self.model = RandomForestClassifier(
-                n_estimators=100,
-                max_depth=10,
+                n_estimators=200,
+                max_depth=15,
+                min_samples_split=5,
+                min_samples_leaf=2,
+                max_features='sqrt',
                 random_state=42,
                 n_jobs=-1
             )
@@ -141,8 +144,11 @@ class SklearnTreatmentRecommender:
         """Construir el modelo."""
         if self.model_type == 'random_forest':
             self.model = RandomForestClassifier(
-                n_estimators=100,
-                max_depth=8,
+                n_estimators=150,
+                max_depth=12,
+                min_samples_split=4,
+                min_samples_leaf=2,
+                max_features='sqrt',
                 random_state=42,
                 n_jobs=-1
             )
